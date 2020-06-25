@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "364252044721",
+    "firebase_url": "https://busmartapp-ee7d0.firebaseio.com",
+    "project_id": "busmartapp-ee7d0",
+    "storage_bucket": "busmartapp-ee7d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364252044721:android:f9d7d52e3039d43daff190",
+        "android_client_info": {
+          "package_name": "com.admin.busmartappadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364252044721-69mlfo7te8tdt6m4sl0jr6q54h9fouqv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.admin.busmartappadmin",
+            "certificate_hash": "9eb5eb645f0b6fe74906555606e3f762a5fd60cd"
+          }
+        },
+        {
+          "client_id": "364252044721-jsamsjrt3bas5kv2jvrn7tb45ciq8vln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe4FmTSZs8tXnkMJ7abFzaseND_0MPYI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364252044721-jsamsjrt3bas5kv2jvrn7tb45ciq8vln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364252044721:android:2fa12c2aaae75961aff190",
+        "android_client_info": {
+          "package_name": "com.admin.busmartappadmin2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364252044721-jsamsjrt3bas5kv2jvrn7tb45ciq8vln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe4FmTSZs8tXnkMJ7abFzaseND_0MPYI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364252044721-jsamsjrt3bas5kv2jvrn7tb45ciq8vln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364252044721:android:d5799a46afee4795aff190",
+        "android_client_info": {
+          "package_name": "com.example.busmartapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364252044721-82amjrurenmfjj9h77vd06t0f8dosi11.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.busmartapp",
+            "certificate_hash": "906ef3acbf893ab87d59e40dad617985a50e6f5b"
+          }
+        },
+        {
+          "client_id": "364252044721-20ji3aj204cm1tpbu07hhi82qbr65a80.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.busmartapp",
+            "certificate_hash": "9eb5eb645f0b6fe74906555606e3f762a5fd60cd"
+          }
+        },
+        {
+          "client_id": "364252044721-jsamsjrt3bas5kv2jvrn7tb45ciq8vln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe4FmTSZs8tXnkMJ7abFzaseND_0MPYI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364252044721-jsamsjrt3bas5kv2jvrn7tb45ciq8vln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
