@@ -1,5 +1,6 @@
 package com.admin.busmartappadmin2
 
+import android.app.AlertDialog
 import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +11,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.admin.busmartappadmin2.service.Injection
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.FirebaseFirestore
+import io.swagger.client.models.Shop
+import io.swagger.client.models.ShopType
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(),
     LostItemFragment.OnListFragmentInteractionListener
@@ -44,72 +53,52 @@ class MainActivity : AppCompatActivity(),
         }
 
         btnAddItem.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            //View view = getLayoutInflater().inflate(R.layout.progress);
+            builder.setView(R.layout.progres)
+            builder.setCancelable(false)
+
+            val dialog = builder.create()
+            dialog.show()
             val selectedShopType = spShopType.selectedItem
             if (selectedShopType == "Cafe"){
-                val name = txtItemName.text
-                val description = txtItemPrice.text
-                if (name != null) {
-                    if (description != null) {
-                        if (description.length > 5 && name.length > 1) {
-                            val newItem: MutableMap<String, Any> = HashMap()
-                            newItem["name"] = name.toString()
-                            newItem["description"] = name.toString()
-
-                            db.collection("cafes")
-                                .document("$name")
-                                .collection("$name")
-                                .add(newItem)
-                                .addOnSuccessListener {
-                                    MaterialAlertDialogBuilder(this)
-                                        .setTitle("Success")
-                                        .setMessage("Added Successfully")
-                                        .setPositiveButton("ok", null)
-                                        .setIcon(R.mipmap.success)
-                                        .show();
-
-                                }
-                                .addOnFailureListener { e ->
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "Failed to add with error: ${e.message}",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                Injection.provideApiService()
+                    .addShop(Shop(UUID.randomUUID().toString(), txtItemName.text.toString(), ShopType.Cafe))
+                    .enqueue(object : Callback<Shop> {
+                        override fun onFailure(call: Call<Shop>, t: Throwable) {
+                            dialog.dismiss()
+                            return
                         }
-                    }
-                }
+
+                        override fun onResponse(call: Call<Shop>, response: Response<Shop>) {
+                            if (!response.isSuccessful) {
+                                dialog.dismiss()
+                                return
+                            }
+
+                            dialog.dismiss()
+                        }
+                    })
             }
             else {
-                val name = txtItemName.text
-                val description = txtItemPrice.text
-                if (name != null) {
-                    if (description != null) {
-                        if (description.length > 5 && name.length > 1) {
-                            val newItem: MutableMap<String, Any> = HashMap()
-                            newItem["name"] = name.toString()
-                            newItem["description"] = name.toString()
-
-                            db.collection("stationary")
-                                .document("$name")
-                                .collection("$name")
-                                .add(newItem)
-                                .addOnSuccessListener {
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "Item added successfully",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
-                                .addOnFailureListener { e ->
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "Failed to add with error: ${e.message}",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                Injection.provideApiService()
+                    .addShop(Shop(UUID.randomUUID().toString(), txtItemName.text.toString(), ShopType.Stationary))
+                    .enqueue(object : Callback<Shop> {
+                        override fun onFailure(call: Call<Shop>, t: Throwable) {
+                            dialog.dismiss()
+                            return
                         }
-                    }
-                }
+
+                        override fun onResponse(call: Call<Shop>, response: Response<Shop>) {
+                            if (!response.isSuccessful) {
+                                dialog.dismiss()
+                                return
+                            }
+
+                            dialog.dismiss()
+                        }
+                    })
+
             }
         txtItemPrice.setText("")
         txtItemName.setText("")
